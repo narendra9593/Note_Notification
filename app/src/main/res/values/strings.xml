@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Note_Notification</string>
+    <string name="hint">Enter Note</string>
+    <string name="lbl_add_note">Add Note</string>
+    <string name="lbl_note_history">Note History</string>
+    <string name="lbl_word_count">%s / 150</string>
+    <string name="medium_priority_notes">Medium priority</string>
+    <string name="low_priority_notes">Low priority </string>
+    <string name="high_priority_notes">High priority</string>
+    <string name="select_priority">Select Priority</string>
+    <string name="selected_priority">Selected Priority : %s </string>
+    <string name="low">Low</string>
+    <string name="medium">Medium</string>
+    <string name="high">High</string>
+</resources>
