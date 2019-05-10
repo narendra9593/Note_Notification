@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     @TargetApi(Build.VERSION_CODES.O)
     private fun sendNotification(id: Int) {
-        val mMessage = etNote.text.toString()
+        val mMessage = etNote.text.toString().trim()
 
         when (priority) {
             1 -> {

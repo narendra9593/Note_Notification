@@ -60,6 +60,7 @@ internal class NotificationHelper(context: Context) : ContextWrapper(context) {
                 MEDIUM_CHANNEL,
                 getString(R.string.medium_priority_notes),
                 NotificationManager.IMPORTANCE_MIN)
+        mediumChannel.vibrationPattern = longArrayOf(300, 400, 500, 400, 300, 400, 500)
         mediumChannel.lightColor = Color.BLUE
         mediumChannel.setShowBadge(true)
         mNotificationManager.createNotificationChannel(mediumChannel)
@@ -70,6 +71,7 @@ internal class NotificationHelper(context: Context) : ContextWrapper(context) {
                 getString(R.string.high_priority_notes),
                 NotificationManager.IMPORTANCE_HIGH)
         highChannel.lightColor = Color.RED
+        highChannel.vibrationPattern = longArrayOf(400, 400, 500, 500, 800, 600, 700)
         highChannel.setShowBadge(true)
         mNotificationManager.createNotificationChannel(highChannel)
     }
@@ -88,7 +90,7 @@ internal class NotificationHelper(context: Context) : ContextWrapper(context) {
                 .setContentTitle("")
                 .setContentText(body)
                 .setSmallIcon(smallIcon)
-                .setAutoCancel(true)
+                .setAutoCancel(false)
     }
 
     /****
