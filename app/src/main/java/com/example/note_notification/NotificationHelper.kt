@@ -11,7 +11,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.support.annotation.RequiresApi
-import android.util.Log
 import com.example.note_notification.AppConstant.DONE_ACTION
 import com.example.note_notification.AppConstant.SNOOZE_ACTION
 
@@ -19,6 +18,7 @@ import com.example.note_notification.AppConstant.SNOOZE_ACTION
 /**
  * Helper class to manage notification channels, and create notifications.
  */
+@Suppress("DEPRECATION")
 @RequiresApi(Build.VERSION_CODES.O)
 internal class NotificationHelper(context: Context) : ContextWrapper(context) {
 
@@ -105,7 +105,7 @@ internal class NotificationHelper(context: Context) : ContextWrapper(context) {
                 .setSmallIcon(smallIcon)
                 .setOngoing(true)
                 .setAutoCancel(false)
-                .addAction(R.drawable.ic_launcher_foreground, "Snooze", pendingIntentSnooze)
+//                .addAction(R.drawable.ic_launcher_foreground, "Snooze", pendingIntentSnooze)
                 .addAction(R.drawable.ic_launcher_foreground, "Task Done", pendingIntentTaskDone)
                 .setContentIntent(pendingIntentTaskDone)
                 .setContentIntent(pendingIntentSnooze)
@@ -118,7 +118,6 @@ internal class NotificationHelper(context: Context) : ContextWrapper(context) {
      * Provide the builder rather than the notification it's self as useful for making
      * notification changes.
 
-     * @param title Title for notification.
      * *
      * @param body  Message for notification.
      * *
@@ -132,7 +131,7 @@ internal class NotificationHelper(context: Context) : ContextWrapper(context) {
                 .setContentTitle("")
                 .setContentText(body)
                 .setSmallIcon(smallIcon)
-                .addAction(R.drawable.ic_launcher_foreground, "Snooze", pendingIntentSnooze)
+//                .addAction(R.drawable.ic_launcher_foreground, "Snooze", pendingIntentSnooze)
                 .addAction(R.drawable.ic_launcher_foreground, "Task Done", pendingIntentTaskDone)
                 .setOngoing(true)
                 .setAutoCancel(false)
@@ -166,7 +165,7 @@ internal class NotificationHelper(context: Context) : ContextWrapper(context) {
         val num = System.currentTimeMillis().toInt()
         val doneIntent = Intent(this, NotificationReceiver::class.java)
         doneIntent.putExtra(DONE_ACTION, id)
-        doneIntent.setAction(DONE_ACTION);
+        doneIntent.action = DONE_ACTION
         pendingIntentTaskDone = PendingIntent.getBroadcast(this, num,
                 doneIntent, PendingIntent.FLAG_UPDATE_CURRENT)
     }
@@ -175,7 +174,7 @@ internal class NotificationHelper(context: Context) : ContextWrapper(context) {
         val num = System.currentTimeMillis().toInt()
         val snoozeIntent = Intent(this, NotificationReceiver::class.java)
         snoozeIntent.putExtra(SNOOZE_ACTION, id)
-        snoozeIntent.setAction(SNOOZE_ACTION);
+        snoozeIntent.action = SNOOZE_ACTION
         pendingIntentSnooze = PendingIntent.getBroadcast(this, num,
                 snoozeIntent, PendingIntent.FLAG_UPDATE_CURRENT)
     }
