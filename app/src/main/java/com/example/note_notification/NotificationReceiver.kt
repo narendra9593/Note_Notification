@@ -18,12 +18,12 @@ class NotificationReceiver : BroadcastReceiver() {
 
         val notifyId = intent.getIntExtra(DONE_ACTION, 0)
 
-        if (DONE_ACTION == action) {
+//        if (DONE_ACTION == action) {
             manager.cancel(notifyId)
-        } else if (SNOOZE_ACTION == action) {
+        /*} else if (SNOOZE_ACTION == action) {
             Log.d("onReceive","======>>> Snooze me")
 //            setNotification(notifyId, context)
-        }
+        }*/
     }
 
 //    @TargetApi(Build.VERSION_CODES.O)

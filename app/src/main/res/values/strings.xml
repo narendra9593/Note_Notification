@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Note_Notification</string>
+    <string name="app_name">Notin Todo</string>
     <string name="hint">Enter Note</string>
     <string name="lbl_add_note">Add Note</string>
     <string name="lbl_note_history">Note History</string>

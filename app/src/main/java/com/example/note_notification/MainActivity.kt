@@ -33,27 +33,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     @TargetApi(Build.VERSION_CODES.O)
     private fun sendNotification(id: Int) {
         val mMessage = etNote.text.toString().trim()
-
-        when (priority) {
-            1 -> {
-//                lblPriority.text =
-                mNotificationHelper.notify(id, mNotificationHelper
-                        .getNotificationLowPriority(mMessage))
-            }
-            2 -> {
-//                lblPriority.text =
-                mNotificationHelper.notify(id, mNotificationHelper
-                        .getNotificationMediumPriority(id, mMessage))
-            }
-            3 -> {
-//                lblPriority.text =
-                mNotificationHelper.notify(id, mNotificationHelper
-                        .getNotificationHighPriority(id, mMessage))
-            }
-            else ->
-                mNotificationHelper.notify(id, mNotificationHelper
-                        .getNotificationLowPriority(mMessage))
-        }
+        mNotificationHelper.notify(id, mNotificationHelper
+                .getNotificationHighPriority(id, mMessage))
+//        when (priority) {
+//            1 -> {
+////                lblPriority.text =
+//                mNotificationHelper.notify(id, mNotificationHelper
+//                        .getNotificationLowPriority(mMessage))
+//            }
+//            2 -> {
+////                lblPriority.text =
+//                mNotificationHelper.notify(id, mNotificationHelper
+//                        .getNotificationMediumPriority(id, mMessage))
+//            }
+//            3 -> {
+////                lblPriority.text =
+//                mNotificationHelper.notify(id, mNotificationHelper
+//                        .getNotificationHighPriority(id, mMessage))
+//            }
+//            else ->
+//                mNotificationHelper.notify(id, mNotificationHelper
+//                        .getNotificationLowPriority(mMessage))
+//        }
         etNote?.text?.clear()
     }
 
