@@ -127,16 +127,21 @@ internal class NotificationHelper(context: Context) : ContextWrapper(context) {
             : Notification.Builder {
         setDataTaskDone(id)
         setDataSnooze(id)
+
         return Notification.Builder(applicationContext, HIGH_CHANNEL)
                 .setContentTitle("")
                 .setContentText(body)
                 .setSmallIcon(smallIcon)
+//                .setLargeIcon(BitmapFactory.decodeResource(this.resources,
+//                        R.mipmap.ic_launcher))
+
 //                .addAction(R.drawable.ic_launcher_foreground, "Snooze", pendingIntentSnooze)
                 .addAction(R.drawable.ic_launcher_foreground, "Task Done", pendingIntentTaskDone)
                 .setOngoing(true)
                 .setAutoCancel(false)
                 .setContentIntent(pendingIntentTaskDone)
                 .setContentIntent(pendingIntentSnooze)
+
     }
 
 
@@ -158,7 +163,7 @@ internal class NotificationHelper(context: Context) : ContextWrapper(context) {
      * @return The small icon resource id
      */
     private val smallIcon: Int
-        get() = android.R.drawable.stat_notify_chat
+        get() = R.mipmap.ic_launcher
 
 
     private fun setDataTaskDone(id: Int) {
